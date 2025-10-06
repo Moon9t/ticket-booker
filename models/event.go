@@ -14,8 +14,8 @@ type Event struct {
 	UpdatedAt time.Time
 }
 
-type EventList interface {
+type EventRepository interface {
 	GetMany(ctx context.Context) ([]*Event, error)
-	GetOne(ctx context.Context, id string) (*Event, error)
-	CreateOne(ctx context.Context, event *Event) (*Event, error)
+	GetOne(ctx context.Context, eventId string) (*Event, error)
+	CreateOne(ctx context.Context, event Event) (*Event, error)
 }
